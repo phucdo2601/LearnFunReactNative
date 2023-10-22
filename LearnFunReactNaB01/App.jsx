@@ -1,7 +1,7 @@
 import React from 'react'
 import { StyleSheet, View } from 'react-native'
-import CurrrentWeather from './src/components/CurrentWeather'
-import UpcomingWeather from './src/components/UpcomingWeather'
+import CurrrentWeather from './src/screens/CurrentWeather'
+import UpcomingWeather from './src/screens/UpcomingWeather'
 
 const App = () => {
   return (
