@@ -1,5 +1,12 @@
 import React from 'react'
-import { SafeAreaView, StyleSheet, Text, FlatList } from 'react-native'
+import {
+  SafeAreaView,
+  StyleSheet,
+  Text,
+  FlatList,
+  Image,
+  ImageBackground
+} from 'react-native'
 import ListItem from '../components/ListItem'
 
 const DATA = [
@@ -40,7 +47,7 @@ const DATA = [
     sys: {
       pod: 'd'
     },
-    dt_txt: '2022-08-30 16:00:00'
+    dt_txt: '2022-08-20 16:00:00'
   },
   {
     dt: 1661875202,
@@ -82,7 +89,7 @@ const DATA = [
     dt_txt: '2022-08-30 16:00:00'
   },
   {
-    dt: 1661875200,
+    dt: 1661875204,
     main: {
       temp: 296.34,
       feels_like: 296.02,
@@ -118,7 +125,7 @@ const DATA = [
     sys: {
       pod: 'd'
     },
-    dt_txt: '2022-08-30 16:00:00'
+    dt_txt: '2022-09-30 16:00:00'
   }
 ]
 
@@ -135,9 +142,18 @@ const UpcomingWeather = () => {
   return (
     <>
       <SafeAreaView style={styles.container}>
-        <Text>Upcoming Weather</Text>
+        <ImageBackground
+          source={require('../../assets/upcoming-background.jpg')}
+          style={styles.image}
+        >
+          <Text>Upcoming Weather</Text>
 
-        <FlatList data={DATA} renderItem={renderItem} />
+          <FlatList
+            data={DATA}
+            renderItem={renderItem}
+            keyExtractor={(item) => item.dt_txt}
+          />
+        </ImageBackground>
       </SafeAreaView>
     </>
   )
@@ -145,6 +161,10 @@ const UpcomingWeather = () => {
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
+    backgroundColor: 'royalblue'
+  },
+  image: {
     flex: 1
   }
 })
